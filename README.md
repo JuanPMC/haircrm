@@ -1,2 +1,2 @@
-# technova-base
-Base django + vercel + postgres project (d-vepos  )
+# Haircrm
+Hair salon's CRM
