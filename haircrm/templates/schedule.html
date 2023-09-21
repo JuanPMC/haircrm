@@ -1,0 +1,58 @@
+{% extends 'navBar.html' %}
+{% block content %}
+
+  <!-- furniture section -->
+
+  <section class="furniture_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <center>
+          <h2>
+            Schedule
+          </h2>
+          <h3>{{now.day}}/{{now.month}}/{{now.year}}</h3>
+          <h4><a href="?previeus=1&day={{ now.day }}&month={{now.month}}&year={{now.year}}"><</a> <a href="./schedule">Today</a> <a href="?day={{ now.day }}&month={{now.month}}&year={{now.year}}">></a></h4>
+        </center>
+      </div>
+
+      <center>
+        <div class="calendar">
+          <div class="timeline">
+            <div class="spacer"></div>
+            <div class="time-marker">9 AM</div>
+            <div class="time-marker">10 AM</div>
+            <div class="time-marker">11 AM</div>
+            <div class="time-marker">12 PM</div>
+            <div class="time-marker">1 PM</div>
+            <div class="time-marker">2 PM</div>
+            <div class="time-marker">3 PM</div>
+            <div class="time-marker">4 PM</div>
+            <div class="time-marker">5 PM</div>
+            <div class="time-marker">6 PM</div>
+          </div>
+          <div class="days">
+            <div class="day mon">
+              <div class="date">
+                <p class="date-num">{{now.day}}</p>
+                <p class="date-day">{{weekday}}</p>
+              </div>
+              <div class="events">
+                {% for date in citas %}
+                  <button onclick="window.location.href='./booking_edit?id_cita={{date.id}}&day={{ now.day }}&month={{now.month}}&year={{now.year}}';" class="event start-{{ date.start.hour }} end-{{ date.end.hour }} securities">
+
+                      <div >
+                        <p class="title">{{ date.worker.nombre }} - {{ date.client.nombre }}</p>
+                        <p class="time">{{ date.start.hour }} - {{ date.end.hour }}</p>
+                      </div>
+
+                  </button>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="./booking?day={{now.day}}&month={{now.month}}&year={{now.year}}"><button class="book-button">Book a date</button></a>
+      </center>
+
+  <!-- end furniture section -->
+{% endblock %}

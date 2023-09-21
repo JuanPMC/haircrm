@@ -1,0 +1,55 @@
+{% extends 'navBar.html' %}
+{% block content %}
+<div class="container">
+
+  <div class="heading_container">
+    <center>
+      <h2>
+        Clients
+      </h2>
+    </center>
+  </div>
+  <center>
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+              <tr>
+                <th><b>Name</b></th>
+                <th><b>Contact number</b></th>
+                <th><b>Action</b></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for client in clients %}
+              <tr>
+                <td>
+                  {{ client.nombre }}
+                </td>
+                <td>
+                  +1{{ client.telefono }}
+                </td>
+                <td>
+                    <a href="./client_delete?id={{ client.id }}"><input type="submit" name="" value="Delete"></a>
+                    <a href="./clients_edit?id={{ client.id }}"><input type="submit" name="" value="edit"></a>
+                    <a href="./client_view?id={{ client.id }}"><input type="submit" name="" value="view"></a>
+                </td>
+              </tr>
+              {% endfor %}
+            <tbody>
+        </table>
+      </div>
+
+    <br>
+    <h2>Create client</h2>
+    <form action="" method="post">
+      {% csrf_token %}
+      Name:<br> <input type="text" name="nombre" value="">
+      <br>
+      Contact number:<br> <input type="text" name="telefono" value="">
+      <br><br>
+      <input type="submit" name="" value="Add">
+    </form>
+    </div>
+  </center>
+
+{% endblock  %}

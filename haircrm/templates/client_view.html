@@ -1,0 +1,36 @@
+{% extends 'navBar.html' %}
+{% block content %}
+<div class="container">
+
+  <div class="heading_container">
+    <h2><a href="./clients"><</a></h2>
+    <center>
+      <h2>
+        Info {{client.nombre}}
+      </h2>
+    </center>
+  </div>
+
+  Name: {{ client.nombre }}<br>
+  Contact number: +1{{ client.telefono }}<br>
+  <br>
+  <hr>
+  {% for data in client_data %}
+  Date: {{ data.created_on }} <br>
+  Data: {{ data.data }} <br>
+  <a href="./client_view_delete?id={{ data.id }}"><input type="submit" name="" value="Delete"></a>
+  <br>
+  <br>
+  {% endfor %}
+
+  <h3>Add Data</h3>
+  <form action="" method="post">
+    {% csrf_token %}
+    Data: <br>
+    <textarea name="data" rows="8" cols="80"></textarea>
+    <br>
+    <input type="submit" name="" value="save">
+  </form>
+
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'navBar.html' %}
+{% block content %}
+<div class="container">
+
+  <div class="heading_container">
+    <center>
+      <h2>
+        Workers
+      </h2>
+    </center>
+  </div>
+  <center>
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+              <tr>
+                <th><b>Name</b></th>
+                <th><b>Action</b></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for worker in workers %}
+              <tr>
+                <td>
+                  {{ worker.nombre }}
+                </td>
+                <td>
+                  <a href="./workers_delete?id={{ worker.id }}"><input type="submit" name="" value="Delete"></a>
+                    <a href="./workers_edit?id={{ worker.id }}"><input type="submit" name="" value="edit"></a>
+                </td>
+              </tr>
+              {% endfor %}
+            <tbody>
+        </table>
+      </div>
+
+
+    <br>
+    <h2>Create worker</h2>
+    <form action="" method="post">
+      {% csrf_token %}
+      Name: <input type="text" name="nombre" value="">
+      <input type="submit" name="" value="Crear">
+    </form>
+</center>
+</div>
+{% endblock %}
