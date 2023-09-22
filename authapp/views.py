@@ -7,7 +7,6 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 def home(request):
     return HttpResponse("<h1> Module auth </h1>")
-@login_required
 def signup(request):
     if request.method == "GET":
         return render(request,"signup.html")
