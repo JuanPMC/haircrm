@@ -90,11 +90,12 @@ else:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
-            "NAME": os_getenv("POSTGRES_DB", "postgres"),
-            "USER": os_getenv("POSTGRES_USER", "postgres"),
-            "PASSWORD": os_getenv("POSTGRES_PASSWORD", "postgres"),
-            "HOST": os_getenv("POSTGRES_HOST", "db"),
+            "NAME": os_getenv("POSTGRES_DATABASE", "verceldb"),
+            "USER": os_getenv("POSTGRES_USER", "default"),
+            "PASSWORD": os_getenv("POSTGRES_PASSWORD", "password"),
+            "HOST": os_getenv("POSTGRES_HOST", "ep-curly-glade-57879119.us-east-1.postgres.vercel-storage.com"),
             "PORT": os_getenv("POSTGRES_PORT", "5432"),
+            'OPTIONS': {'sslmode': 'require'},
         }
     }
 
