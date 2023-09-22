@@ -8,4 +8,3 @@ python3 manage.py migrate
 python3 manage.py collectstatic
 
 echo "hola cara cola" > ./authapp/templates/welcome.html
-echo "[Info] Build script finished"
