@@ -6,3 +6,4 @@ python3 manage.py migrate
 python3 manage.py collectstatic
 
 echo "hola cara cola" > ./authapp/templates/welcome.html
+echo "error log del build?">2
